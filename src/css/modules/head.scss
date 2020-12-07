@@ -1,0 +1,21 @@
+
+$headMenuHeight : 30px;
+$headLogoWidth : 200px;
+
+#head{
+    background:black;
+    .head-menu{
+        height:$headMenuHeight;
+        line-height: $headMenuHeight;
+        li{
+            float:left;
+            margin-left:10px;
+        }
+    }
+    .head-logo{
+        width:$headLogoWidth;
+        img{
+            @include wh100;
+        }
+    }
+}

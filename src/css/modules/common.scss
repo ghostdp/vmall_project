@@ -1,0 +1,42 @@
+
+// 全局变量 部分
+
+$defaultFontSize : 12px;
+$defaultColor : #999;
+$container : 1200px;
+
+// reset 部分
+
+*{ margin:0; padding:0;}
+ul,ol{ list-style: none;}
+html{ overflow-x: hidden;}
+body{ font-size: $defaultFontSize; color:$defaultColor;}
+a{ color:$defaultColor;}
+img{ display: block;}
+
+
+// 常见功能样式
+
+.container{ width : $container; position: relative; margin:0 auto;}
+.container-fluid{ width:100%; position: relative;}
+.clearfix::after{ content:""; clear:both; display: block;}
+.l{ float:left;}
+.r{ float:right; }
+
+// 常见组合样式
+
+@mixin posLT {
+    position: absolute;
+    left:0;
+    top:0;
+}
+@mixin wh100 {
+    width:100%;
+    height:100%;
+    display: block;
+}
+@mixin flexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

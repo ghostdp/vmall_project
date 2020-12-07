@@ -1,0 +1,23 @@
+
+$footMenuSize : 26px;
+$footLogoWidth : 100px;
+
+#foot{
+    background : #f9f9f9;
+    .foot-menu{
+        @include flexBetween;
+        div{
+            font-size:$footMenuSize;
+            i{
+                font-size:$footMenuSize;
+            }
+        }
+    }
+    .foot-logo{
+        width : $footLogoWidth;
+        margin-top:20px;
+        img{
+            @include wh100;
+        }
+    }
+}
