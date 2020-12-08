@@ -170,7 +170,9 @@ define(['jquery' , '/api/server.js' , '/js/modules/banner.js' , '/js/modules/car
 
             //console.log( goodsData );
 
-            addCartStorage( goodsData );
+            addCartStorage( goodsData , function(){
+                alert('添加成功！！！！');
+            });
 
         });
 
