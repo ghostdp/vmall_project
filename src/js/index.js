@@ -41,7 +41,7 @@ define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { ge
                     data.goods_list.map((v,i)=>{
                         return `
                             <li>
-                                <a href="/view/detail.html">
+                                <a target="_blank" href="/view/detail.html?type=${data.type}&id=${v.goodsId}">
                                     <div><img src="${v.goodsImg}" alt=""></div>
                                     <h3>${v.goodsName}</h3>
                                     <p>${v.goodsPrice}</p>
