@@ -35,13 +35,18 @@ define(['jquery'] , function($){
         return promise;
     }
 
+    function actionLogin(){
+        return $.ajax('/api2/login.php');
+    }
+
     return {
         getBannerData,
         getBanner2Data,
         getPhoneData,
         getBookData,
         getPadData,
-        getDetailData
+        getDetailData,
+        actionLogin
     }
 
 

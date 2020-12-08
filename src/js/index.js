@@ -8,11 +8,15 @@ requirejs.config({
 
 // require.js的时候，如果引入绝对路径，需要带有后缀名
 
-define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { getBannerData , getPhoneData , getBookData , getPadData } , initBanner){
+define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { getBannerData , getPhoneData , getBookData , getPadData , actionLogin } , initBanner){
 
     //console.log($);
     //console.log(getBannerData);
     //console.log(initBanner);
+
+    actionLogin().then((res)=>{
+        console.log(res);
+    });
 
     getBannerData().then((res)=>{
         //console.log(res);

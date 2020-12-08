@@ -66,7 +66,13 @@ function webTask(){
                 host : 'localhost',
                 port : 3000,
                 open : './view/index.html',   // 服务器启动成功后，自动打开的页面
-                livereload : true      // 热更新 -> 再不刷新浏览器的时候，也能自动更新页面
+                livereload : true,      // 热更新 -> 再不刷新浏览器的时候，也能自动更新页面
+                proxies:[   //配置反向代理
+                    {
+                        source:'/api2',
+                        target:'http://localhost/api2'
+                    }
+                ]
             }));
 }
 
