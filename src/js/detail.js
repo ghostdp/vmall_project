@@ -10,7 +10,7 @@ requirejs.config({
 });
 
 
-define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { getBanner2Data , getDetailData } , initBanner){
+define(['jquery' , '/api/server.js' , '/js/modules/banner.js' , '/js/modules/cartStorage.js'],function($ , { getBanner2Data , getDetailData } , initBanner , { addCartStorage }){
 
     var type = location.search.match(/type=([^&]+)/)[1];
     var id = location.search.match(/id=([^&]+)/)[1];
@@ -20,6 +20,7 @@ define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { ge
         initDetailGoods(res);
         initGallery();
         initInfos();
+        addCart(res);
     });
 
     getBanner2Data().then((res)=>{       
@@ -54,8 +55,8 @@ define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { ge
                     <span>+</span>
                     <span>-</span>
                 </div>
-                <div class="detail_message_cart l"><a href="#">加入购物车</a></div>
-                <div class="detail_message_computed l"><a href="#">立即下单</a></div>
+                <div class="detail_message_cart l"><a href="javascript:;">加入购物车</a></div>
+                <div class="detail_message_computed l"><a href="/view/cart.html">立即下单</a></div>
             </div>
         `);
 
@@ -154,4 +155,24 @@ define(['jquery' , '/api/server.js' , '/js/modules/banner.js'],function($ , { ge
 
     }
 
+    // 添加购物车的功能
+    function addCart(data){
+        var $detailMessageCart = $('.detail_message_cart');
+        var goodsData = {};
+        $detailMessageCart.on('click',function(){
+
+            goodsData.goodsName = data.goodsName;
+            goodsData.goodsPrice = data.goodsPrice;
+            goodsData.goodsId = data.goodsId;
+            goodsData.goodsNumber = Number($('.detail_message_num input').val());
+            goodsData.goodsChecked = true;
+            goodsData.goodsType = $('.detail_message_box').filter('.active').html();
+
+            //console.log( goodsData );
+
+            addCartStorage( goodsData );
+
+        });
+
+    }
 });
